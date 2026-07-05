@@ -1,0 +1,8 @@
+# robots.txt — Tom Legrand Jardin & Services
+# https://tom-legrand-paysagiste.fr/
+
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://tom-legrand-paysagiste.fr/sitemap.xml
