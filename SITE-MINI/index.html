@@ -47,8 +47,12 @@
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2397C459'%3E%3Cpath d='M12 2C6.5 2 2 6.5 2 12c0 3.8 2 7.1 5 9 .5-3.5 2-6.5 5-8-3 2-4.5 5-5 8.5C9 22 10.5 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z'/%3E%3C/svg%3E">
 
   <!-- ══════════ Performance / preload ══════════ -->
-  <link rel="preload" as="image" href="taille-haie-hebecourt-tom-legrand.webp" type="image/webp">
-  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <!-- Connexion anticipée vers Unsplash (ouvre le tunnel TCP/TLS avant que le CSS soit lu) -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <!-- Précharge la 1ère slide du hero en priorité absolue → réduit le LCP -->
+  <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1642541744624-7a2a89545a32?w=1400&q=75&fit=crop"
+        fetchpriority="high">
 
   <!-- ══════════ Feuille de style ══════════ -->
   <link rel="stylesheet" href="styles.css">
@@ -65,10 +69,6 @@
     "image": "https://tom-legrand-paysagiste.fr/taille-haie-hebecourt-tom-legrand.jpg",
     "logo": "https://tom-legrand-paysagiste.fr/logo.png",
     "url": "https://tom-legrand-paysagiste.fr/",
-    "sameAs": [
-      "https://www.instagram.com/tom_legrand_jardin_services/",
-      "https://www.facebook.com/people/Tom-Legrand-Jardin-Services/61575515913124/"
-    ],
     "telephone": "+33624797872",
     "email": "tl-jardins-services@outlook.fr",
     "priceRange": "€€",
@@ -77,6 +77,7 @@
     "slogan": "Votre jardin, notre passion. Sérieux, rigueur et passion du métier à votre service.",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "27 Rue des Landes",
       "addressLocality": "Hébécourt",
       "postalCode": "27150",
       "addressRegion": "Normandie",
@@ -106,6 +107,27 @@
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "08:00",
         "closes": "18:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1",
+      "reviewCount": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": { "@type": "Person", "name": "Marion Vallier" },
+        "reviewBody": "Personne professionnelle, ponctuelle et des prix raisonnables !",
+        "publisher": { "@type": "Organization", "name": "Google" }
       }
     ],
     "hasOfferCatalog": {
@@ -208,10 +230,6 @@
       <li><a href="#galerie">Réalisations</a></li>
       <li><a href="#avis">Avis</a></li>
       <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
-      <li style="display:flex; align-items:center;"><a href="https://www.instagram.com/tom_legrand_jardin_services/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Tom Legrand Jardin &amp; Services" style="display:inline-flex;">
-        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igHeader" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".8" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#igHeader)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.8" cy="8.2" r="0.95" fill="#fff"/></svg></a></li>
-      <li style="display:flex; align-items:center;"><a href="https://www.facebook.com/people/Tom-Legrand-Jardin-Services/61575515913124/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Tom Legrand Jardin &amp; Services" style="display:inline-flex;">
-        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M15.4 12.02h-2.3V20h-3v-7.98H8.5V9.4h1.6V8c0-2 1.2-3.1 3.1-3.1l2 .01v2.6h-1.3c-.7 0-.9.35-.9.9v1H15l-.35 2.62z" fill="#fff"/></svg></a></li>
     </ul>
 
     <div class="nav-burger" id="burger" aria-label="Menu" role="button" tabindex="0">
@@ -226,29 +244,29 @@
   <section id="hero" aria-label="Bannière principale">
 
     <!-- Slides — photos de jardins (Unsplash, libres de droits) -->
-    <!-- Pelouse verte impeccable avec haies -->
+    <!-- Pelouse verte impeccable avec haies — URL identique au preload ci-dessus -->
     <div class="slide" style="background-image:
-      url('https://images.unsplash.com/photo-1642541744624-7a2a89545a32?w=1800&q=85&fit=crop'),
+      url('https://images.unsplash.com/photo-1642541744624-7a2a89545a32?w=1400&q=75&fit=crop'),
       linear-gradient(150deg,#0d3d0a,#1a6b10,#2d9c18)">
     </div>
     <!-- Haie parfaitement taillée -->
     <div class="slide" style="background-image:
-      url('https://images.unsplash.com/photo-1766228271529-7aac76cca4c9?w=1800&q=85&fit=crop'),
+      url('https://images.unsplash.com/photo-1766228271529-7aac76cca4c9?w=1400&q=75&fit=crop'),
       linear-gradient(150deg,#062b12,#0f5c2a,#1a8c40)">
     </div>
     <!-- Chemin de pierre dans un beau jardin -->
     <div class="slide" style="background-image:
-      url('https://images.unsplash.com/photo-1697109366308-2552a64bc706?w=1800&q=85&fit=crop'),
+      url('https://images.unsplash.com/photo-1697109366308-2552a64bc706?w=1400&q=75&fit=crop'),
       linear-gradient(150deg,#1a3d0a,#2d6b10,#4a9c1a)">
     </div>
     <!-- Allée bordée d'arbres -->
     <div class="slide" style="background-image:
-      url('https://images.unsplash.com/photo-1747762323616-f4db54dad7d1?w=1800&q=85&fit=crop'),
+      url('https://images.unsplash.com/photo-1747762323616-f4db54dad7d1?w=1400&q=75&fit=crop'),
       linear-gradient(150deg,#062020,#0f5050,#1a8c5a)">
     </div>
     <!-- Haies géométriques parfaitement entretenues -->
     <div class="slide" style="background-image:
-      url('https://images.unsplash.com/photo-1768855242950-2a946133e94b?w=1800&q=85&fit=crop'),
+      url('https://images.unsplash.com/photo-1768855242950-2a946133e94b?w=1400&q=75&fit=crop'),
       linear-gradient(150deg,#1a4a04,#2d7d0c,#4aaa14)">
     </div>
 
@@ -425,7 +443,7 @@
           </div>
           <div class="chiffre-carte">
             <div class="chiffre-num">100%</div>
-            <p class="chiffre-lbl">Artisan local<br>indépendant</p>
+            <p class="chiffre-lbl">Clients<br>satisfaits</p>
           </div>
           <div class="chiffre-carte">
             <div class="chiffre-num">0€</div>
@@ -522,13 +540,15 @@
           <p class="avis-auteur">Marion Vallier <span class="avis-source">· via Google</span></p>
         </article>
 
-        <!-- Ajoutez ici les futurs avis clients sur ce modèle :
-        <article class="avis-carte">
+        <article class="avis-carte avis-vide">
           <div class="avis-etoiles">★★★★★</div>
-          <p class="avis-texte">"Texte de l'avis"</p>
-          <p class="avis-auteur">Prénom Nom <span class="avis-source">· via Google</span></p>
+          <p class="avis-texte avis-vide-texte">Votre prochain avis apparaîtra ici…</p>
         </article>
-        -->
+
+        <article class="avis-carte avis-vide">
+          <div class="avis-etoiles">★★★★★</div>
+          <p class="avis-texte avis-vide-texte">Votre prochain avis apparaîtra ici…</p>
+        </article>
 
       </div>
 
@@ -654,7 +674,6 @@
                 <div class="horaire-ligne"><span class="horaire-jour">Jeudi</span><span>08h – 18h</span></div>
                 <div class="horaire-ligne"><span class="horaire-jour">Vendredi</span><span>08h – 18h</span></div>
                 <div class="horaire-ligne"><span class="horaire-jour">Samedi</span><span>Fermé</span></div>
-                <div class="horaire-ligne"><span class="horaire-jour">Dimanche</span><span>Fermé</span></div>
               </div>
             </div>
           </div>
@@ -732,26 +751,6 @@
       Tom Legrand <span>Jardin & Services</span>
       <p class="footer-baseline">Des extérieurs entretenus, un cadre de vie embelli.</p>
     </div>
-    <div class="footer-social" style="display:flex; flex-direction:column; align-items:center; gap:0.7rem; margin:1.2rem 0;">
-      <span style="font-size:0.85rem; opacity:0.85; letter-spacing:0.5px;">Suivez-nous</span>
-      <div style="display:flex; gap:1rem; justify-content:center; align-items:center;">
-        <a href="https://www.instagram.com/tom_legrand_jardin_services/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Tom Legrand Jardin &amp; Services" style="display:inline-flex;">
-          <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
-            <defs><linearGradient id="igFooter" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".8" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs>
-            <rect width="24" height="24" rx="6" fill="url(#igFooter)"/>
-            <rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/>
-            <circle cx="12" cy="12" r="2.8" fill="none" stroke="#fff" stroke-width="1.5"/>
-            <circle cx="15.8" cy="8.2" r="0.95" fill="#fff"/>
-          </svg>
-        </a>
-        <a href="https://www.facebook.com/people/Tom-Legrand-Jardin-Services/61575515913124/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Tom Legrand Jardin &amp; Services" style="display:inline-flex;">
-          <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
-            <rect width="24" height="24" rx="6" fill="#1877F2"/>
-            <path d="M15.4 12.02h-2.3V20h-3v-7.98H8.5V9.4h1.6V8c0-2 1.2-3.1 3.1-3.1l2 .01v2.6h-1.3c-.7 0-.9.35-.9.9v1H15l-.35 2.62z" fill="#fff"/>
-          </svg>
-        </a>
-      </div>
-    </div>
     <p class="footer-copy">© 2026 Tom Legrand · 27150 Hébécourt</p>
     <div class="footer-liens">
       <a href="mentions-legales.html">Mentions légales</a>
@@ -760,6 +759,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

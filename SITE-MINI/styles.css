@@ -51,7 +51,7 @@ a   { text-decoration: none; color: inherit; }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--vert-vif);
+  color: #4a7a14;
   margin-bottom: 12px;
 }
 
@@ -417,6 +417,7 @@ a   { text-decoration: none; color: inherit; }
 
 .pourquoi-texte .titre-section { color: var(--vert-mint); }
 .pourquoi-texte .sous-titre    { color: var(--vert-pale); }
+.pourquoi-texte .tag           { color: var(--vert-clair); }
 
 .atouts {
   display: flex;
@@ -582,7 +583,7 @@ a   { text-decoration: none; color: inherit; }
   font-weight: 600;
   color: var(--vert-moyen);
 }
-.avis-source { font-size: 12px; color: #888; font-weight: 400; }
+.avis-source { font-size: 12px; color: #666; font-weight: 400; }
 
 .avis-cta {
   text-align: center;
@@ -598,6 +599,7 @@ a   { text-decoration: none; color: inherit; }
 #contact { background: var(--vert-fonce); }
 #contact .titre-section { color: var(--vert-mint); }
 #contact .sous-titre    { color: var(--vert-pale); }
+#contact .tag           { color: var(--vert-clair); }
 
 .contact-grille {
   display: grid;
