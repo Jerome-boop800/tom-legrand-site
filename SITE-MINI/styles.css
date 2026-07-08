@@ -199,6 +199,16 @@ a   { text-decoration: none; color: inherit; }
   filter: brightness(0.9) saturate(1.05);
 }
 
+/* Image réelle dans slide 1 — positionnée comme un background-image */
+.slide-img-lcp {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 @keyframes fadeSlide {
   0%   { opacity: 0; }
   5%   { opacity: 1; }
