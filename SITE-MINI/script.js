@@ -173,4 +173,5 @@
     });
   }, { threshold: 0.1 });
 
-  elements.forEach(el => observe
+  elements.forEach(el => observer.observe(el));
+})();
