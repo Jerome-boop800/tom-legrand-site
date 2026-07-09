@@ -47,8 +47,9 @@
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2397C459'%3E%3Cpath d='M12 2C6.5 2 2 6.5 2 12c0 3.8 2 7.1 5 9 .5-3.5 2-6.5 5-8-3 2-4.5 5-5 8.5C9 22 10.5 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z'/%3E%3C/svg%3E">
 
   <!-- ══════════ Performance / preload ══════════ -->
-  <!-- Précharge la 1ère slide (image locale) en priorité absolue → LCP fiable -->
-  <link rel="preload" as="image" href="taille-haie-hebecourt-tom-legrand.webp" fetchpriority="high">
+  <!-- Précharge la 1ère slide — AVIF pour les navigateurs modernes, WebP en fallback -->
+  <link rel="preload" as="image" href="taille-haie-hebecourt-tom-legrand.avif" type="image/avif" fetchpriority="high">
+  <link rel="preload" as="image" href="taille-haie-hebecourt-tom-legrand.webp" type="image/webp" fetchpriority="high">
 
   <!-- ══════════ Feuille de style ══════════ -->
   <link rel="stylesheet" href="styles.css">
@@ -217,7 +218,7 @@
   ══════════════════════════════════════════════ -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <img src="logo.png" alt="Logo Tom Legrand Jardin & Services" class="nav-logo-img">
+      <img src="logo.webp" alt="Logo Tom Legrand Jardin & Services" class="nav-logo-img" width="240" height="160">
       Tom Legrand <span>Jardin & Services</span>
     </a>
 
@@ -242,14 +243,17 @@
     <!-- Slides — photos de jardins (Unsplash, libres de droits) -->
     <!-- Slide 1 : image locale Tom Legrand — élément LCP principal -->
     <div class="slide">
-      <img src="taille-haie-hebecourt-tom-legrand.webp"
-           alt=""
-           fetchpriority="high"
-           loading="eager"
-           decoding="async"
-           width="1800"
-           height="1350"
-           class="slide-img-lcp">
+      <picture>
+        <source srcset="taille-haie-hebecourt-tom-legrand.avif" type="image/avif">
+        <img src="taille-haie-hebecourt-tom-legrand.webp"
+             alt=""
+             fetchpriority="high"
+             loading="eager"
+             decoding="async"
+             width="1800"
+             height="1350"
+             class="slide-img-lcp">
+      </picture>
     </div>
     <!-- Slides 2-5 : images locales, chargées par JS après le LCP (data-bg) -->
     <div class="slide"
