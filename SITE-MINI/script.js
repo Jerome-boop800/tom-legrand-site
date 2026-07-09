@@ -175,3 +175,21 @@
 
   elements.forEach(el => observer.observe(el));
 })();
+
+
+// ── Chargement différé des slides Unsplash (2-5) ──
+// Les URLs sont stockées dans data-bg et injectées APRÈS l'événement load,
+// pour ne pas concurrencer le téléchargement de la slide 1 (élément LCP).
+(function() {
+  function chargerSlidesUnsplash() {
+    document.querySelectorAll('.slide[data-bg]').forEach(function(slide) {
+      slide.style.backgroundImage = slide.dataset.bg;
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    chargerSlidesUnsplash();
+  } else {
+    window.addEventListener('load', chargerSlidesUnsplash);
+  }
+})();
