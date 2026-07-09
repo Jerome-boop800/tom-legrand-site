@@ -49,8 +49,6 @@
   <!-- ══════════ Performance / preload ══════════ -->
   <!-- Précharge la 1ère slide (image locale) en priorité absolue → LCP fiable -->
   <link rel="preload" as="image" href="taille-haie-hebecourt-tom-legrand.webp" fetchpriority="high">
-  <!-- Préconnexion Unsplash pour les slides 2-5 -->
-  <link rel="preconnect" href="https://images.unsplash.com">
 
   <!-- ══════════ Feuille de style ══════════ -->
   <link rel="stylesheet" href="styles.css">
@@ -253,18 +251,18 @@
            height="1350"
            class="slide-img-lcp">
     </div>
-    <!-- Slides 2-5 : URL stockée dans data-bg, chargée par JS après le LCP -->
+    <!-- Slides 2-5 : images locales, chargées par JS après le LCP (data-bg) -->
     <div class="slide"
-         data-bg="url('https://images.unsplash.com/photo-1766228271529-7aac76cca4c9?w=1400&q=75&fit=crop'), linear-gradient(150deg,#062b12,#0f5c2a,#1a8c40)">
+         data-bg="url('carrousel-haie-taillee.webp'), linear-gradient(150deg,#062b12,#0f5c2a,#1a8c40)">
     </div>
     <div class="slide"
-         data-bg="url('https://images.unsplash.com/photo-1697109366308-2552a64bc706?w=1400&q=75&fit=crop'), linear-gradient(150deg,#1a3d0a,#2d6b10,#4a9c1a)">
+         data-bg="url('carrousel-jardin-entretenu.webp'), linear-gradient(150deg,#1a3d0a,#2d6b10,#4a9c1a)">
     </div>
     <div class="slide"
-         data-bg="url('https://images.unsplash.com/photo-1747762323616-f4db54dad7d1?w=1400&q=75&fit=crop'), linear-gradient(150deg,#062020,#0f5050,#1a8c5a)">
+         data-bg="url('carrousel-allee-arbres.webp'), linear-gradient(150deg,#062020,#0f5050,#1a8c5a)">
     </div>
     <div class="slide"
-         data-bg="url('https://images.unsplash.com/photo-1768855242950-2a946133e94b?w=1400&q=75&fit=crop'), linear-gradient(150deg,#1a4a04,#2d7d0c,#4aaa14)">
+         data-bg="url('carrousel-haies-geometriques.webp'), linear-gradient(150deg,#1a4a04,#2d7d0c,#4aaa14)">
     </div>
 
     <div class="hero-overlay"></div>
