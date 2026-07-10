@@ -882,4 +882,55 @@ footer {
 
 /* ── Très petits écrans (<480px) ──────────────────────────── */
 @media (max-width: 480px) {
-  #nav { heigh
+  #nav { height: 64px; }
+  html { scroll-padding-top: 64px; }
+
+  .nav-logo { font-size: 14px; }
+  .nav-logo-img { width: 48px; height: 48px; }
+
+  .hero-titre { font-size: 26px; }
+  .hero-content { padding: 80px 16px 40px; }
+
+  .galerie-grille { grid-template-columns: 1fr; }
+  .galerie-item:first-child { grid-column: auto; }
+  .galerie-item { min-height: 200px; }
+
+  .pourquoi-chiffres { grid-template-columns: 1fr 1fr; }
+  .chiffre-num { font-size: 32px; }
+
+  .contact-grille { gap: 28px; }
+}
+
+/* ── Maillage interne footer (zones d'intervention) ── */
+.footer-zones {
+  width: 100%;
+  max-width: 720px;
+  margin: 1.2rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+}
+.footer-zones-titre {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.7rem;
+}
+.footer-zones-liste {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.2rem;
+}
+.footer-zones-liste a {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  text-decoration: none;
+}
+.footer-zones-liste a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ── Masquer les avis vides (placeholders) tant qu'il n'y a pas d'avis réels ── */
+.avis-vide { display: none; }
